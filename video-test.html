@@ -1,0 +1,36 @@
+<html>
+
+<head>
+<title> Test Video </title>
+  <link rel="stylesheet" href="index.css">
+
+  <link href="https://vjs.zencdn.net/7.6.0/video-js.css" rel="stylesheet">
+  <script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
+
+  <!-- Streamroot source handler plugin -->
+  <script src="//cdn.streamroot.io/videojs-hlsjs-plugin/1/stable/videojs-hlsjs-plugin.js"></script>
+
+  <!-- Streamroot DNA plugin -->
+  <script src="//cdn.streamroot.io/videojs-hls-dna-plugin/1/stable/videojs-hls-dna-plugin.js#streamrootKey=1c04d9d9-96d7-4bce-be8b-ab38b319047c"></script>
+
+  <script src="//tools.streamroot.io/usage-graphs/stable/graphs.js"></script>
+  <script src="video.js"></script>
+</head>
+
+<body>
+  <center>
+    <div>
+            <video id='my-video' class='video-js' controls preload='auto' width='400' height='300' data-setup='{}'>
+                    <source src='http://vod-l3.delivery.streamroot.io/vodOrigin/tos1500.mp4/playlist.m3u8' type="application/x-mpegURL">
+            </video>
+            
+    </div>
+    <div id="streamroot-graphs"></div>
+  </center>
+  
+  <script src='https://vjs.zencdn.net/7.6.0/video.js'></script>
+  <script src="index.pack.js"></script>
+
+</body>
+
+</html>
