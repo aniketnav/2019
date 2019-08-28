@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Hls.js build -->
+<script src="//cdn.jsdelivr.net/npm/hls.js@0.12.2/dist/hls.min.js"></script>
+
+<!-- Streamroot wrapper -->
+<script src="//cdn.streamroot.io/hlsjs-dna-wrapper/1/stable/hlsjs-dna-wrapper.js"></script>
+
+<script src="//cdn.streamroot.io/videojs-hls-dna-plugin/1/stable/videojs-hls-dna-plugin.js#streamrootKey=1c04d9d9-96d7-4bce-be8b-ab38b319047c"></script>
+
+<script src="//tools.streamroot.io/usage-graphs/stable/graphs.js"></script>
+    </head>
+
+    <body>
+            <video id="demoplayer"></video>
+            <script>
+                var hlsjsConfig = {
+                    "maxBufferSize": 0,
+			        "maxBufferLength": 30,
+			        "liveSyncDuration": 30
+                    };
+                var dnaConfig = {};
+                var hls = new Hls(hlsjsConfig);
+                var wrapper = new HlsjsDnaWrapper(hls, '1c04d9d9-96d7-4bce-be8b-ab38b319047c', dnaConfig);
+                var video = document.getElementById('demoplayer');
+                hls.loadSource('http://vod-l3.delivery.streamroot.io/vodOrigin/tos1500.mp4/playlist.m3u8');
+                hls.attachMedia(video);
+                hls.on(Hls.Events.MANIFEST_PARSED,function() {
+                    video.play();
+                });
+            </script>
+    </body>
+</html>
